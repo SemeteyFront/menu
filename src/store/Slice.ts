@@ -13,10 +13,45 @@ type Initial = {
   price: number
 }
 
+const fill = [
+  {
+    "id": 1,
+    "name": "Стейк Рибай",
+    "price": 25,
+    "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCqYAyYvg4fxkoJjN81pIaB_IgPh8KikKAlQ&usqp=CAU",
+    "description": "Сочный и ароматный кусок мяса, известный своим мраморным жиром.",
+    "count": 0
+  },
+  {
+    "id": 1,
+    "name": "Филе Миньон",
+    "price": 34,
+    "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPRqhMPv2bZJk-7EnQ0Nyif7Rz-5F-lut2DQ&usqp=CAU",
+    "description": "Невероятно нежный и почти безжирный стейк, часто считается самым желаемым.",
+    "count": 0
+  },
+  {
+    "id": 1,
+    "name": "Стейк Нью-Йорк",
+    "price": 29,
+    "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2YkadfFtfTyD8WuCfAx36KnvQJDi9euzrxg&usqp=CAU",
+    "description": "Классический стейк с хорошим сочетанием нежности и аромата.",
+    "count": 0
+  },
+  {
+    "id": 1,
+    "name": "Стейк Т-Боун",
+    "price": 31,
+    "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXKuazRtvji36BnuqgQnru7yy26egm8Bh3sA&usqp=CAU",
+    "description": "Стейк, сочетающий два куска мяса: филейную часть и часть из ребер.",
+    "count": 0
+  }
+]
+
 const initialState: Initial = {
   id: 0,
   menu: menu,
-  filters: [],
+  filters: fill,
   modal: [],
   price: 0
 }

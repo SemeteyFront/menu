@@ -10,13 +10,12 @@ export const Menu = () => {
   const dispatch = useAppDispatch();
   const filters = useAppSelector((state) => state.clickSlice.filters);
   const id = useAppSelector((state) => state.clickSlice.id);
-  
 
   useEffect(() => {
     dispatch(getMenu());
-  }, [id]);
+  }, []);
 
-  console.log(filters.length);
+  console.log(filters);
   
 
 

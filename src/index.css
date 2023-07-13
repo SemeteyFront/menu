@@ -24,19 +24,19 @@ body {
 
 @media (max-width: 650px) {
   body {
-    padding: 0 50px;
+    padding: 0 40px;
   }
 }
 
 @media (max-width: 500px) {
   body {
-    padding: 0 40px;
+    padding: 0 30px;
   }
 }
 
 @media (max-width: 400px) {
   body {
-    padding: 0 20px;
+    padding: 0 15px;
   }
 }
 
