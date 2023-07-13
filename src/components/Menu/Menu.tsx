@@ -14,14 +14,17 @@ export const Menu = () => {
 
   useEffect(() => {
     dispatch(getMenu());
-  }, []);
+  }, [id]);
+
+  console.log(filters.length);
+  
 
 
   return (
     <>
     <Header/>
     <div className='menu'>
-      { filters.length &&
+      { filters.length > 0 &&
         filters.map((item) => {
             return (
               <div className='menu__block' key={item.description}>
