@@ -9,22 +9,45 @@ import './header.scss';
 import { Link } from 'react-router-dom';
 import { ShoppingCartOutlined } from '@ant-design/icons'
 
+const categories = [
+  {
+    "id": 1,
+    "name": "Стейки"
+  },
+  {
+    "id": 2,
+    "name": "Салаты"
+  },
+  {
+    "id": 3,
+    "name": "Теплые салаты"
+  },
+  {
+    "id": 4,
+    "name": "Супы"
+  },
+  {
+    "id": 5,
+    "name": "Десерты"
+  }
+]
+
 
 export const Header: FC = () => {
   const dispatch = useAppDispatch();
-  const [nav, setNav] = useState<Categories[]>();
+  const [nav, setNav] = useState<Categories[]>(categories);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const allPrice = useAppSelector(state => state.clickSlice.price)
 
-  async function getCategories() {
-    await axios
-      .get<Categories[]>('http://localhost:3001/categories')
-      .then((data) => setNav(data.data));
-  }
+  // async function getCategories() {
+  //   await axios
+  //     .get<Categories[]>('http://localhost:3001/categories')
+  //     .then((data) => setNav(data.data));
+  // }
 
-  useEffect(() => {
-    getCategories();
-  }, []);
+  // useEffect(() => {
+  //   getCategories();
+  // }, []);
 
   
   // const showModal = () => {

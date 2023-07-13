@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction} from '@reduxjs/toolkit'
 import { getMenu } from './async'
 import { Menu } from '../types/type'
+import { menu } from './menu'
 
 
 
@@ -14,7 +15,7 @@ type Initial = {
 
 const initialState: Initial = {
   id: 0,
-  menu: [],
+  menu: menu,
   filters: [],
   modal: [],
   price: 0
@@ -78,7 +79,6 @@ const clickSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getMenu.fulfilled, (state, action) => {
-        state.menu = action.payload
         state.filters = state.menu.filter(food => food.id === 1)
       })
   }
