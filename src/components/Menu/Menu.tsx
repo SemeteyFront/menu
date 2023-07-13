@@ -21,7 +21,7 @@ export const Menu = () => {
     <>
     <Header/>
     <div className='menu'>
-      {filters &&
+      {id === 0 && filters &&
         filters.map((item) => {
             return (
               <div className='menu__block' key={item.description}>
