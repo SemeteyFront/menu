@@ -54,7 +54,7 @@ export const Header: FC = () => {
           </Button>
           </Link>
       </div>
-      <ModalComponent isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
+      {/* <ModalComponent isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/> */}
     </header>
   );
 };
