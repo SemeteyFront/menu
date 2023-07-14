@@ -1,5 +1,5 @@
 import { useState, useEffect, FC } from 'react';
-import axios from 'axios';
+import { MenuOutlined, CloseOutlined } from '@ant-design/icons'
 import { Categories } from '../../types/type';
 import { useAppDispatch, useAppSelector } from '../../store/hook';
 import { clickId } from '../../store/Slice';
@@ -38,6 +38,16 @@ export const Header: FC = () => {
   const [nav, setNav] = useState<Categories[]>(categories);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const allPrice = useAppSelector(state => state.clickSlice.price)
+  const [isMenu, setIfMenu] = useState<boolean>(false);
+  const price = useAppSelector(state => state.clickSlice.price)
+
+  const handleClick = (id: number) => {
+    dispatch(clickId(id))
+    setIfMenu(false)
+    
+  }
+
+  
 
   // async function getCategories() {
   //   await axios
@@ -57,26 +67,35 @@ export const Header: FC = () => {
   return (
     <header className='header'>
       <Link to={'/'}><img
-        src={'https://www.freepnglogos.com/uploads/coffee-logo-png/coffee-logo-design-creative-idea-logo-elements-2.png'}
-        alt='logo'
-      /></Link>
-      <nav>
-        <ul>
-          {nav &&
-            nav.map((item) => (
-              <li className='header__list' onClick={() => dispatch(clickId(item.id))} key={item.id}>
-                {item.name}
-              </li>
-            ))}
-        </ul>
-      </nav>
-      <div className='header__cart'>
-        <Link to={'/cart'}>
-          <Button>
-            <ShoppingCartOutlined style={{fontSize: 20}}/> {allPrice}₸
-          </Button>
-          </Link>
-      </div>
+          src={'https://www.freepnglogos.com/uploads/coffee-logo-png/coffee-logo-design-creative-idea-logo-elements-2.png'}
+          alt='logo'
+        /></Link>
+      <ul className={isMenu ? "menu-list active" : "menu-list"}>
+        <Link to={'/'}><img
+          src={'https://www.freepnglogos.com/uploads/coffee-logo-png/coffee-logo-design-creative-idea-logo-elements-2.png'}
+          alt='logo'
+        /></Link>
+        {nav &&
+          nav.map((item) => (
+            <li onClick={() => handleClick(item.id)} key={item.id}>
+              {item.name}
+            </li>
+          ))}
+          {
+            price > 0 ?
+            <Link className='cart' to={'/cart'}>
+            <Button>
+              <ShoppingCartOutlined style={{fontSize: 20}}/> {allPrice}₸
+            </Button>
+          </Link> 
+          :
+          null
+          }
+      </ul>
+      
+      <div onClick={() => setIfMenu(!isMenu)} className="mobile_btn">
+            {isMenu ? <CloseOutlined size={25} /> : <MenuOutlined size={25} />}
+          </div>
       {/* <ModalComponent isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/> */}
     </header>
   );

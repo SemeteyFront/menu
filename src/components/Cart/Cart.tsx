@@ -15,10 +15,9 @@ export const Cart: FC= () => {
 
   return (
       <div className='cart'>
-        <Link to='/'>На главную</Link>
-        <h2>Сумма: {allPrice}</h2>
+        <Link className='home' to='/'>На главную</Link>
         {
-          foods ? 
+          foods.length > 0 ? 
           foods.map(food => {
             return (
               <div className='menu__block' key={food.description}>
@@ -38,8 +37,15 @@ export const Cart: FC= () => {
               </div>
             )
           }):
-          <Empty description={false} />
+          <Empty description='Daulet'/>
         }
+        <h2>Сумма: {allPrice}</h2>
+        <a href="https://wa.me/+77470504578" type='tel'>
+        <div className="whatsapp-icon">
+          <i className="fab fa-whatsapp"></i>
+        </div>
+        </a>
+        
       </div>
   )
 }
