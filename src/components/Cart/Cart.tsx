@@ -14,7 +14,7 @@ export const Cart: FC= () => {
   
 
   return (
-      <div className='cart'>
+      <div className='cart-p'>
         <Link className='home' to='/'>На главную</Link>
         {
           foods.length > 0 ? 
@@ -37,10 +37,10 @@ export const Cart: FC= () => {
               </div>
             )
           }):
-          <Empty description='Daulet'/>
+          <Empty description='Корзина пуста'/>
         }
         <h2>Сумма: {allPrice}</h2>
-        <a href="https://wa.me/+77470504578" type='tel'>
+        <a href="https://wa.me/+77084579637" type='tel'>
         <div className="whatsapp-icon">
           <i className="fab fa-whatsapp"></i>
         </div>

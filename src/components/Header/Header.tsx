@@ -7,7 +7,6 @@ import { ModalComponent } from '../Modal';
 import { Button } from 'antd';
 import './header.scss';
 import { Link } from 'react-router-dom';
-import { ShoppingCartOutlined } from '@ant-design/icons'
 
 const categories = [
   {
@@ -31,7 +30,6 @@ const categories = [
     "name": "Десерты"
   }
 ]
-
 
 export const Header: FC = () => {
   const dispatch = useAppDispatch();
@@ -66,12 +64,12 @@ export const Header: FC = () => {
 
   return (
     <header className='header'>
-      <Link to={'/'}><img
+      <Link className='logo1' to={'/'}><img
           src={'https://www.freepnglogos.com/uploads/coffee-logo-png/coffee-logo-design-creative-idea-logo-elements-2.png'}
           alt='logo'
         /></Link>
       <ul className={isMenu ? "menu-list active" : "menu-list"}>
-        <Link to={'/'}><img
+        <Link className='logo 2' to={'/'}><img
           src={'https://www.freepnglogos.com/uploads/coffee-logo-png/coffee-logo-design-creative-idea-logo-elements-2.png'}
           alt='logo'
         /></Link>
@@ -81,16 +79,6 @@ export const Header: FC = () => {
               {item.name}
             </li>
           ))}
-          {
-            price > 0 ?
-            <Link className='cart' to={'/cart'}>
-            <Button>
-              <ShoppingCartOutlined style={{fontSize: 20}}/> {allPrice}₸
-            </Button>
-          </Link> 
-          :
-          null
-          }
       </ul>
       
       <div onClick={() => setIfMenu(!isMenu)} className="mobile_btn">
