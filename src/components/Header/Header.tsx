@@ -1,12 +1,12 @@
-import { useState, useEffect, FC } from 'react';
+import { useState, FC } from 'react';
 import { MenuOutlined, CloseOutlined } from '@ant-design/icons'
 import { Categories } from '../../types/type';
 import { useAppDispatch, useAppSelector } from '../../store/hook';
 import { clickId } from '../../store/Slice';
-import { ModalComponent } from '../Modal';
-import { Button } from 'antd';
+// import logo from '../../assets/images/logo.png'
 import './header.scss';
 import { Link } from 'react-router-dom';
+
 
 const categories = [
   {
@@ -34,18 +34,12 @@ const categories = [
 export const Header: FC = () => {
   const dispatch = useAppDispatch();
   const [nav, setNav] = useState<Categories[]>(categories);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const allPrice = useAppSelector(state => state.clickSlice.price)
   const [isMenu, setIfMenu] = useState<boolean>(false);
-  const price = useAppSelector(state => state.clickSlice.price)
 
   const handleClick = (id: number) => {
     dispatch(clickId(id))
     setIfMenu(false)
-    
   }
-
-  
 
   // async function getCategories() {
   //   await axios
@@ -57,20 +51,15 @@ export const Header: FC = () => {
   //   getCategories();
   // }, []);
 
-  
-  // const showModal = () => {
-  //   setIsModalOpen(true);
-  // };
-
   return (
     <header className='header'>
       <Link className='logo1' to={'/'}><img
-          src={'https://www.freepnglogos.com/uploads/coffee-logo-png/coffee-logo-design-creative-idea-logo-elements-2.png'}
+          src={'https://lh5.ggpht.com/lqqXixzI72EWfQ2GIFfsOx1Mxjdk4kcH4_OY0rJlNPWyE4qjdRDSUH8WcS6TouInlEBT'}
           alt='logo'
         /></Link>
       <ul className={isMenu ? "menu-list active" : "menu-list"}>
         <Link className='logo 2' to={'/'}><img
-          src={'https://www.freepnglogos.com/uploads/coffee-logo-png/coffee-logo-design-creative-idea-logo-elements-2.png'}
+          src={'https://lh5.ggpht.com/lqqXixzI72EWfQ2GIFfsOx1Mxjdk4kcH4_OY0rJlNPWyE4qjdRDSUH8WcS6TouInlEBT'}
           alt='logo'
         /></Link>
         {nav &&
@@ -84,7 +73,6 @@ export const Header: FC = () => {
       <div onClick={() => setIfMenu(!isMenu)} className="mobile_btn">
             {isMenu ? <CloseOutlined size={25} /> : <MenuOutlined size={25} />}
           </div>
-      {/* <ModalComponent isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/> */}
     </header>
   );
 };

@@ -22,29 +22,7 @@ export const ModalComponent: FC<ModalComponentProps> = ({isModalOpen, setIsModal
   };
   return (
       <Modal title="Корзина" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-        <h2>Сумма: {allPrice}</h2>
-        {
-          foods ? 
-          foods.map(food => {
-            return (
-              <div className='menu__block' key={food.description}>
-                <div className='menu__img'>
-                  <img src={food.url} alt='food' />
-                </div>
-                <div>
-                  <h3 className='menu__name'>{food.name}</h3>
-                  <span className='menu__price'>{food.price}</span>
-                </div>
-                <div>
-                  <Button onClick={() => dispatch(increment(food.name))}>+</Button>
-                  <span>{food.count}</span>
-                  <Button onClick={() => dispatch(decrement(food.name))}>-</Button>
-                </div>
-              </div>
-            )
-          }):
-          <Empty description={false} />
-        }
+        gAfkjdfsdyfklj
       </Modal>
   )
 }

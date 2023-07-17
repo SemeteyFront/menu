@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/hook';
 import { Button, Empty } from 'antd';
 import { getMenu } from '../../store/async';
@@ -7,18 +7,22 @@ import { addModal, decrement } from '../../store/Slice';
 import { Link } from 'react-router-dom';
 import { Header } from '../Header';
 import { ShoppingCartOutlined } from '@ant-design/icons'
+import { ModalComponent } from '../Modal';
 
 
 export const Menu = () => {
   const dispatch = useAppDispatch();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const filters = useAppSelector((state) => state.clickSlice.filters);
   const price = useAppSelector((state) => state.clickSlice.price);
 
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
   useEffect(() => {
     dispatch(getMenu());
-  }, []);
-
-  console.log(filters);
+  }, [dispatch]);
 
 
   return (
@@ -38,7 +42,7 @@ export const Menu = () => {
               return (
                 <div className='menu__block' key={item.description}>
                   <div className='menu__img'>
-                    <img  src={item.url} alt='food' />
+                    <img  src={item.url} alt='food' onClick={showModal} />
                   </div>
                   <div className='menu__two'>
                     <div className='menu__info'>
@@ -58,8 +62,9 @@ export const Menu = () => {
                 </div>
               );
             }) :
-            <Empty description='Зоя говорит блюд нет!' />
+            <Empty description='Блюд нет!' />
           }
+      <ModalComponent isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
       </div>
     </>
   );

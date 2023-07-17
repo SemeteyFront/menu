@@ -20,18 +20,18 @@ export const Cart: FC= () => {
           foods.length > 0 ? 
           foods.map(food => {
             return (
-              <div className='menu__block' key={food.description}>
-                <div className='menu__img'>
+              <div className='lists' key={food.description}>
+                <div className='lists__img'>
                   <img src={food.url} alt='food' />
                 </div>
-                <div>
-                  <h3 className='menu__name'>{food.name}</h3>
-                  <span className='menu__price'>{food.price}</span>
+                <div className='lists__block'>
+                  <h3 className='lists__name'>{food.name}</h3>
+                  <p className='lists__desc'>{food.description}</p>
+                  <span className='lists__price'>{food.price}</span>
                 </div>
-                <p className='menu__desc'>{food.description}</p>
-                <div>
+                <div className='lists__click'>
                   <Button onClick={() => dispatch(increment(food.name))}>+</Button>
-                  <span>{food.count}</span>
+                    <span>{food.count}</span>
                   <Button onClick={() => dispatch(decrement(food.name))}>-</Button>
                 </div>
               </div>
@@ -39,12 +39,14 @@ export const Cart: FC= () => {
           }):
           <Empty description='Корзина пуста'/>
         }
-        <h2>Сумма: {allPrice}</h2>
-        <a href="https://wa.me/+77084579637" type='tel'>
-        <div className="whatsapp-icon">
-          <i className="fab fa-whatsapp"></i>
+        <div className='cart-p__end'>
+          <a href="https://wa.me/+77084574537" type='tel'>
+            <div className="whatsapp-icon">
+              <i className="fab fa-whatsapp"></i>
+            </div>
+          </a>
+          <h2>Итог: {allPrice}</h2>
         </div>
-        </a>
         
       </div>
   )
