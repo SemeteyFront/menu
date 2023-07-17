@@ -9,6 +9,22 @@ export const menu = [
   },
   {
     "id": 1,
+    "name": "Стейк Рибайq",
+    "price": 25,
+    "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCqYAyYvg4fxkoJjN81pIaB_IgPh8KikKAlQ&usqp=CAU",
+    "description": "Сочныйv и ароматный кусок мяса, известный своим мраморным жиром.",
+    "count": 0
+  },
+  {
+    "id": 1,
+    "name": "Стейк Рибайt",
+    "price": 25,
+    "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCqYAyYvg4fxkoJjN81pIaB_IgPh8KikKAlQ&usqp=CAU",
+    "description": "Сочныйc и ароматный кусок мяса, известный своим мраморным жиром.",
+    "count": 0
+  },
+  {
+    "id": 1,
     "name": "Филе Миньон",
     "price": 34,
     "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPRqhMPv2bZJk-7EnQ0Nyif7Rz-5F-lut2DQ&usqp=CAU",

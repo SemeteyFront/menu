@@ -4,6 +4,7 @@ import { Menu } from './components/Menu';
 import { Route, Routes } from 'react-router-dom';
 import { Cart } from './components/Cart';
 import { Burger } from './components/Burger';
+import { Footer } from './components/Footer';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path='/cart' element={<Cart/>} />
         <Route path='/burger' element={<Burger/>} />
       </Routes>
+      <Footer/>
     </div>
   );
 }
