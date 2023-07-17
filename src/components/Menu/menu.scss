@@ -36,6 +36,7 @@
     justify-content: center;
     align-items: center;
     flex-grow: 0;
+    cursor: pointer;
 
     
     img {
@@ -168,7 +169,7 @@
   }
 
   @media (max-width: 420px) {
-    right: 30px;
+    right: 25px;
   }
 
   @media (max-width: 320px) {

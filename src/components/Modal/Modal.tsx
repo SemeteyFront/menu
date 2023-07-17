@@ -1,17 +1,13 @@
-import React, { useState, FC } from 'react';
-import { Modal, Button, Empty } from 'antd';
+import { FC } from 'react';
+import { Modal } from 'antd';
 import { ModalComponentProps } from '../../types/type';
 import { useAppDispatch, useAppSelector } from '../../store/hook';
-import { decrement, increment } from '../../store/Slice';
 import './modal.scss'
 
 
 
 export const ModalComponent: FC<ModalComponentProps> = ({isModalOpen, setIsModalOpen}) => {
-  const foods = useAppSelector(state => state.clickSlice.modal)
-  const allPrice = useAppSelector(state => state.clickSlice.price)
-  const dispatch = useAppDispatch()
-  
+  const food = useAppSelector(state => state.clickSlice.find)
 
   const handleOk = () => {
     setIsModalOpen(false);
@@ -21,8 +17,13 @@ export const ModalComponent: FC<ModalComponentProps> = ({isModalOpen, setIsModal
     setIsModalOpen(false);
   };
   return (
-      <Modal title="Корзина" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-        gAfkjdfsdyfklj
+      <Modal open={isModalOpen} onOk={handleOk} onCancel={handleCancel} >
+        <div className='modal'>
+          <h2>{food?.name}</h2>
+          <img src={food?.url} alt="food" />
+          <p>{food?.description}</p>
+          <span>{food?.price}₸</span>
+        </div>
       </Modal>
   )
 }

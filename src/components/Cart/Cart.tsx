@@ -27,7 +27,7 @@ export const Cart: FC= () => {
                 <div className='lists__block'>
                   <h3 className='lists__name'>{food.name}</h3>
                   <p className='lists__desc'>{food.description}</p>
-                  <span className='lists__price'>{food.price}</span>
+                  <span className='lists__price'>{food.price}₸</span>
                 </div>
                 <div className='lists__click'>
                   <Button onClick={() => dispatch(increment(food.name))}>+</Button>
@@ -45,7 +45,7 @@ export const Cart: FC= () => {
               <i className="fab fa-whatsapp"></i>
             </div>
           </a>
-          <h2>Итог: {allPrice}</h2>
+          <h2>Итог: {allPrice}₸</h2>
         </div>
         
       </div>

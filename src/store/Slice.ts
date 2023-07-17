@@ -11,6 +11,7 @@ type Initial = {
   filters: Menu[]
   modal: Menu[] | []
   price: number
+  find: Menu | null
 }
 
 const fill = [
@@ -20,6 +21,22 @@ const fill = [
     "price": 25,
     "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCqYAyYvg4fxkoJjN81pIaB_IgPh8KikKAlQ&usqp=CAU",
     "description": "Сочный и ароматный кусок мяса, известный своим мраморным жиром.",
+    "count": 0
+  },
+  {
+    "id": 1,
+    "name": "Стейк Рибайq",
+    "price": 25,
+    "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCqYAyYvg4fxkoJjN81pIaB_IgPh8KikKAlQ&usqp=CAU",
+    "description": "Сочныйv и ароматный кусок мяса, известный своим мраморным жиром.",
+    "count": 0
+  },
+  {
+    "id": 1,
+    "name": "Стейк Рибайt",
+    "price": 25,
+    "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCqYAyYvg4fxkoJjN81pIaB_IgPh8KikKAlQ&usqp=CAU",
+    "description": "Сочныйc и ароматный кусок мяса, известный своим мраморным жиром.",
     "count": 0
   },
   {
@@ -53,7 +70,8 @@ const initialState: Initial = {
   menu: menu,
   filters: fill,
   modal: [],
-  price: 0
+  price: 0,
+  find: null
 }
 
 const clickSlice = createSlice({
@@ -109,6 +127,12 @@ const clickSlice = createSlice({
           state.modal[index].count--
           state.price -= state.modal[index].price
         }
+    },
+    findObjects(state, action: PayloadAction<string>) {
+      const find = state.menu.find(food => food.description === action.payload)
+      if(find) {
+        state.find = find
+      }
     }
   },
   extraReducers: (builder) => {
@@ -119,5 +143,5 @@ const clickSlice = createSlice({
   }
 })
 
-export const { clickId, addModal, increment, decrement } = clickSlice.actions
+export const { clickId, addModal, increment, decrement, findObjects } = clickSlice.actions
 export default clickSlice.reducer
