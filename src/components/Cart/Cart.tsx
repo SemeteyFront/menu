@@ -40,7 +40,7 @@ export const Cart: FC= () => {
           <Empty description='Корзина пуста'/>
         }
         <div className='cart-p__end'>
-          <a href="https://wa.me/+77084574537" type='tel'>
+          <a href="https://wa.me/+77470504578" type='tel'>
             <div className="whatsapp-icon">
               <i className="fab fa-whatsapp"></i>
             </div>
